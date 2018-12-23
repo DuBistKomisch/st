@@ -82,6 +82,9 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/* bg opacity */
+unsigned short alpha = 0xf000;
+
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* gruvbox dark */
@@ -204,6 +207,9 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_F6,          swapcolors,     {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ MODKEY,               XK_Prior,       alphamod,       {.f = +1} },
+	{ MODKEY,               XK_Next,        alphamod,       {.f = -1} },
+	{ MODKEY,               XK_Home,        alphamod,       {.f =  0} },
 };
 
 /*
